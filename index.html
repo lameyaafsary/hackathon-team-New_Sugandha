@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>সিসিমপুর অ্যান্টি-কুদ্দুস প্রোটোকল 🛡️</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700;800;900&display=swap');
+        body{font-family:'Hind Siliguri',sans-serif}
+        .mode-card{transition:all .35s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden}
+        .mode-card::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,255,255,.12) 0%,transparent 60%);opacity:0;transition:opacity .4s}
+        .mode-card:hover::before{opacity:1}
+        .mode-card:hover{transform:translateY(-5px) scale(1.02);box-shadow:0 18px 45px -10px rgba(0,0,0,.25)}
+        .offline-glow{animation:offP 2.5s ease-in-out infinite}
+        @keyframes offP{0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,.3)}50%{box-shadow:0 0 0 12px rgba(239,68,68,0)}}
+        .online-shine{background-size:200% 200%;animation:shM 4s ease-in-out infinite}
+        @keyframes shM{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+        .fade-in{animation:fI .4s ease-out}
+        @keyframes fI{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+        .sos-pulse{animation:sP 1.5s ease-in-out infinite}
+        @keyframes sP{0%,100%{box-shadow:0 0 0 0 rgba(220,38,38,.5)}50%{box-shadow:0 0 0 16px rgba(220,38,38,0)}}
+        .help-anim{animation:hP .5s ease-out}
+        @keyframes hP{0%{transform:scale(.8);opacity:0}100%{transform:scale(1);opacity:1}}
+        .siren-flash{animation:sF .3s ease-in-out infinite alternate}
+        @keyframes sF{0%{background-color:rgba(239,68,68,.05)}100%{background-color:rgba(239,68,68,.25)}}
+        .explosion{animation:ex 1s ease-out}
+        @keyframes ex{0%{transform:scale(0);opacity:0}50%{transform:scale(1.2);opacity:1}100%{transform:scale(1);opacity:1}}
+        ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:#f5f5f4;border-radius:10px}::-webkit-scrollbar-thumb{background:#d97706;border-radius:10px}
+        .welcome-float{animation:wF 3s ease-in-out infinite}
+        @keyframes wF{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+        .welcome-float-d1{animation:wF 3s ease-in-out .3s infinite}
+        .welcome-float-d2{animation:wF 3s ease-in-out .6s infinite}
+        .welcome-float-d3{animation:wF 3s ease-in-out .9s infinite}
+        .welcome-enter-btn{animation:wE 2s ease-in-out infinite}
+        @keyframes wE{0%,100%{transform:scale(1);box-shadow:0 8px 30px rgba(0,0,0,.2)}50%{transform:scale(1.05);box-shadow:0 12px 40px rgba(0,0,0,.3)}}
+        .welcome-particle{position:absolute;border-radius:50%;opacity:.3;animation:wP 6s ease-in-out infinite}
+        @keyframes wP{0%,100%{transform:translateY(0) scale(1);opacity:.2}50%{transform:translateY(-30px) scale(1.3);opacity:.4}}
+        .page-fade-out{animation:pFO .5s ease-in forwards}
+        @keyframes pFO{to{opacity:0;transform:scale(.96);pointer-events:none}}
+        .page-fade-in{animation:pFI .5s ease-out}
+        @keyframes pFI{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}
+        .rule-item{transition:all .2s}.rule-item:hover{background:#fef3c7;transform:translateX(4px)}
+        .seat-box{transition:all .3s ease;position:relative}
+        .seat-box.absent{background:rgba(239,68,68,.25)!important;border-color:#ef4444!important;animation:seatBlink .5s ease-in-out infinite alternate}
+        @keyframes seatBlink{0%{background:rgba(239,68,68,.15)}100%{background:rgba(239,68,68,.4)}}
+        .seat-box.present{background:rgba(16,185,129,.2)!important;border-color:#10b981!important}
+        .edit-toggle{transition:all .25s ease}
+        .edit-toggle.active{background:#ef4444!important;border-color:#dc2626!important;box-shadow:0 0 12px rgba(239,68,68,.5)}
+        .siren-banner{animation:sirenBanner 1s ease-in-out infinite alternate}
+        @keyframes sirenBanner{0%{border-color:#ef4444;background:rgba(239,68,68,.08)}100%{border-color:#f97316;background:rgba(249,115,22,.12)}}
+        .verify-row{transition:all .2s}.verify-row:hover{background:#f0f9ff}
+        .verify-row.marked-absent{background:#fef2f2;border-color:#fca5a5!important}
+        .kuddus-badge{animation:kB 1.2s ease-in-out infinite}
+        @keyframes kB{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.15);opacity:.8}}
+        .kuddus-seat{border:2px solid #ef4444!important;background:linear-gradient(135deg,rgba(239,68,68,.15),rgba(127,29,29,.25))!important}
+    </style>
+</head>
+<body class="bg-amber-50 text-gray-800 min-h-screen pb-12">
+
+<!-- ওয়েলকাম পেজ -->
+<div id="welcome-page" class="min-h-screen flex items-center justify-center relative overflow-hidden" style="background:linear-gradient(135deg,#fbbf24 0%,#f59e0b 25%,#10b981 50%,#06b6d4 75%,#8b5cf6 100%);">
+    <div class="welcome-particle w-16 h-16 bg-white top-[10%] left-[8%]" style="animation-delay:0s"></div>
+    <div class="welcome-particle w-10 h-10 bg-yellow-200 top-[20%] right-[12%]" style="animation-delay:1s"></div>
+    <div class="welcome-particle w-20 h-20 bg-green-200 bottom-[15%] left-[15%]" style="animation-delay:2s"></div>
+    <div class="welcome-particle w-12 h-12 bg-cyan-200 bottom-[25%] right-[8%]" style="animation-delay:3s"></div>
+    <div class="welcome-particle w-8 h-8 bg-purple-200 top-[50%] left-[5%]" style="animation-delay:4s"></div>
+    <div class="welcome-particle w-14 h-14 bg-orange-200 top-[8%] left-[45%]" style="animation-delay:1.5s"></div>
+    <div class="relative z-10 text-center px-4 max-w-2xl mx-auto">
+        <div class="flex justify-center gap-3 md:gap-5 mb-6">
+            <div class="welcome-float w-16 h-16 md:w-20 md:h-20 bg-white/90 rounded-2xl shadow-xl flex items-center justify-center text-3xl md:text-4xl border-2 border-orange-300">🐯</div>
+            <div class="welcome-float-d1 w-16 h-16 md:w-20 md:h-20 bg-white/90 rounded-2xl shadow-xl flex items-center justify-center text-3xl md:text-4xl border-2 border-blue-300">🦊</div>
+            <div class="welcome-float-d2 w-16 h-16 md:w-20 md:h-20 bg-white/90 rounded-2xl shadow-xl flex items-center justify-center text-3xl md:text-4xl border-2 border-pink-300">👧</div>
+            <div class="welcome-float-d3 w-16 h-16 md:w-20 md:h-20 bg-white/90 rounded-2xl shadow-xl flex items-center justify-center text-3xl md:text-4xl border-2 border-green-300">🎒</div>
+        </div>
+        <div class="bg-white/95 backdrop-blur-sm rounded-3xl p-6 md:p-10 shadow-2xl border-4 border-white/60">
+            <h1 class="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-green-500 to-cyan-500 mb-3 leading-tight">স্বাগতম,<br>সিসিমপুর যোদ্ধাগণ!</h1>
+            <p class="text-gray-600 text-sm md:text-base leading-relaxed mb-2">🌳 সিসিমপুর অ্যান্টি-কুদ্দুস প্রোটোকলে আপনাকে স্বাগত জানাই।</p>
+            <p class="text-gray-500 text-xs md:text-sm leading-relaxed mb-6">হালুম, শিকু, ইকরি আর টুকটুকি — চারজন মিলে কুদ্দুসের অত্যাচার থেকে ক্লাসকে মুক্ত করতে একজোট হয়েছে। আপনিও যোগ দিন এই অভিযানে!</p>
+            <div class="flex flex-wrap justify-center gap-2 mb-6">
+                <span class="bg-orange-100 text-orange-700 text-[10px] font-bold px-3 py-1.5 rounded-full border border-orange-200">🐯 হালুমের থাবা</span>
+                <span class="bg-blue-100 text-blue-700 text-[10px] font-bold px-3 py-1.5 rounded-full border border-blue-200">🦊 শিকুর সিট</span>
+                <span class="bg-pink-100 text-pink-700 text-[10px] font-bold px-3 py-1.5 rounded-full border border-pink-200">👧 ইকরির ফিল্টার</span>
+                <span class="bg-green-100 text-green-700 text-[10px] font-bold px-3 py-1.5 rounded-full border border-green-200">🎒 টুকটুকির খাতা</span>
+                <span class="bg-purple-100 text-purple-700 text-[10px] font-bold px-3 py-1.5 rounded-full border border-purple-200">💬 গোপন চ্যাট</span>
+                <span class="bg-indigo-100 text-indigo-700 text-[10px] font-bold px-3 py-1.5 rounded-full border border-indigo-200">📖 রুল বুক</span>
+            </div>
+            <button onclick="enterFromWelcome()" class="welcome-enter-btn bg-gradient-to-r from-orange-500 via-green-500 to-cyan-500 text-white font-black py-4 px-10 rounded-2xl text-sm md:text-base shadow-2xl tracking-wide hover:from-orange-600 hover:via-green-600 hover:to-cyan-600 transition-all active:scale-95">
+                পোর্টালে প্রবেশ করুন ➔
+            </button>
+            <p class="text-[10px] text-gray-400 mt-4">সিসিমপুর অ্যান্টি-কুদ্দুস প্রোটোকল v3.3 | ৭ম শ্রেণি, শাখা - খ</p>
+        </div>
+    </div>
+</div>
+
+<!-- হেডার -->
+<header id="main-header" class="hidden bg-gradient-to-r from-yellow-400 via-orange-400 to-green-400 text-center py-6 shadow-xl border-b-4 border-yellow-500">
+    <h1 class="text-3xl md:text-4xl font-black text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.4)]">🌳 সিসিমপুর অ্যান্টি-কুদ্দুস প্রোটোকল</h1>
+    <p class="text-yellow-900 font-bold mt-1 text-xs md:text-sm bg-yellow-200/60 inline-block px-3 py-0.5 rounded-full">৭ম শ্রেণি, শাখা - খ | রোল-বেসড গ্লোবাল নেভিগেশন সিস্টেম</p>
+</header>
+
+<main id="main-content" class="hidden max-w-6xl mx-auto px-4 mt-8">
+
+<!-- লগইন পেজ -->
+<div id="view-login-page" class="max-w-2xl mx-auto mt-8 md:mt-12">
+    <div id="login-mode-select" class="fade-in">
+        <div class="text-center mb-7">
+            <span class="text-6xl block mb-2">🔐</span>
+            <h2 class="text-2xl md:text-3xl font-black text-amber-700">পোর্টালে প্রবেশ করুন</h2>
+            <p class="text-sm text-gray-500 mt-1">লগইন মোড সিলেক্ট করুন</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 px-2">
+            <div onclick="selectLoginMode('offline')" class="mode-card offline-glow bg-gradient-to-br from-gray-800 via-gray-900 to-red-950 rounded-3xl p-6 md:p-8 cursor-pointer border-2 border-red-500/40 shadow-xl">
+                <div class="flex items-center gap-3 mb-4"><div class="w-14 h-14 bg-red-500/20 rounded-2xl flex items-center justify-center text-3xl border border-red-500/30">📴</div><div><h3 class="text-white font-black text-lg leading-tight">অফলাইন লগইন</h3><span class="text-red-400 text-[10px] font-bold bg-red-500/15 px-2 py-0.5 rounded-full">ইন্টারনেট ছাড়া</span></div></div>
+                <p class="text-gray-400 text-xs leading-relaxed mb-4">রোল দিয়ে পরিচয় নিশ্চিত করুন, তারপর সরাসরি জরুরি SOS বাঁশি বাজাতে পারবেন।</p>
+                <div class="flex items-center gap-2 text-red-400 text-xs font-bold"><span class="bg-red-500/20 px-2.5 py-1 rounded-lg">🚨 শুধু SOS</span><span class="bg-red-500/20 px-2.5 py-1 rounded-lg">⚡ দ্রুত</span></div>
+            </div>
+            <div onclick="selectLoginMode('online')" class="mode-card online-shine bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-700 rounded-3xl p-6 md:p-8 cursor-pointer border-2 border-emerald-400/40 shadow-xl">
+                <div class="flex items-center gap-3 mb-4"><div class="w-14 h-14 bg-emerald-400/20 rounded-2xl flex items-center justify-center text-3xl border border-emerald-400/30">🌐</div><div><h3 class="text-white font-black text-lg leading-tight">অনলাইন লগইন</h3><span class="text-emerald-300 text-[10px] font-bold bg-emerald-400/15 px-2 py-0.5 rounded-full">সম্পূর্ণ ফিচার</span></div></div>
+                <p class="text-emerald-100/70 text-xs leading-relaxed mb-4">সব মিশন আনলক — হালুমের থাবা, শিকুর সিট, ইকরির ফিল্টার, টুকটুকির খাতা, গোপন চ্যাট এবং SOS।</p>
+                <div class="flex flex-wrap items-center gap-2 text-emerald-200 text-xs font-bold"><span class="bg-emerald-400/20 px-2.5 py-1 rounded-lg">🐯 সব মিশন</span><span class="bg-emerald-400/20 px-2.5 py-1 rounded-lg">👤 রোল বেসড</span></div>
+            </div>
+        </div>
+        <p class="text-center text-[10px] text-gray-400 mt-6">সিসিমপুর অ্যান্টি-কুদ্দুস প্রোটোকল v3.3</p>
+    </div>
+
+    <div id="offline-login-form" class="hidden fade-in">
+        <div class="bg-white rounded-3xl p-6 md:p-8 shadow-xl border-4 border-red-200">
+            <button onclick="backToModeSelect()" class="flex items-center gap-1.5 text-xs text-gray-500 hover:text-red-600 font-bold mb-5 transition group"><span class="w-7 h-7 bg-gray-100 group-hover:bg-red-100 rounded-full flex items-center justify-center transition text-sm">←</span>ফিরে যান</button>
+            <div class="text-center mb-5"><span class="text-4xl">📴</span><h2 class="text-xl font-black text-red-600 mt-2">অফলাইন SOS</h2><p class="text-[11px] text-gray-500">রোল দিন, পরিচয় নিশ্চিত হলে বাঁশি বাজান</p></div>
+            <div class="space-y-4">
+                <div><label class="block text-xs font-bold text-gray-600 mb-1">ক্লাস রোল নম্বর (১-২৩)</label><input type="number" id="offline-roll" oninput="handleOfflineRollInput()" placeholder="রোল নম্বর লিখুন..." class="w-full border-2 border-gray-300 rounded-xl p-3 text-sm outline-none focus:border-red-400 transition"></div>
+                <div id="offline-user-info"></div>
+                <div id="offline-sos-area" class="hidden space-y-3 fade-in">
+                    <select id="offline-sos-loc" class="w-full p-2.5 text-xs border-2 border-gray-200 rounded-xl outline-none bg-white focus:border-red-400 transition"><option value="টিফিন ক্যান্টিন">🍔 টিফিন ক্যান্টিন</option><option value="স্কুলের করিডোর">🏢 স্কুলের করিডোর</option><option value="লাইব্রেরি">📚 লাইব্রেরি</option><option value="খেলার মাঠ">⚽ খেলার মাঠ</option><option value="ওয়াশরুম">🚻 ওয়াশরুম</option></select>
+                    <button id="offline-sos-btn" onclick="sendOfflineSos()" class="sos-pulse w-full bg-red-600 hover:bg-red-700 text-white font-black py-3.5 rounded-xl text-xs tracking-widest transition active:scale-95">🚨 বাঁশি বাজান (SEND SOS)</button>
+                </div>
+                <div id="offline-sos-result" class="hidden"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="online-login-form" class="hidden fade-in">
+        <div class="bg-white rounded-3xl p-6 md:p-8 shadow-xl border-4 border-emerald-200">
+            <button onclick="backToModeSelect()" class="flex items-center gap-1.5 text-xs text-gray-500 hover:text-emerald-600 font-bold mb-5 transition group"><span class="w-7 h-7 bg-gray-100 group-hover:bg-emerald-100 rounded-full flex items-center justify-center transition text-sm">←</span>ফিরে যান</button>
+            <div class="text-center mb-5"><span class="text-4xl">🌐</span><h2 class="text-xl font-black text-emerald-600 mt-2">অনলাইন লগইন</h2><p class="text-[11px] text-gray-500">পরিচয় অনুযায়ী লগইন করুন</p></div>
+            <form onsubmit="handleOnlineLogin(event)" class="space-y-4">
+                <div><label class="block text-xs font-bold text-gray-600 mb-1">পরিচয় (Role)</label><select id="login-role" onchange="toggleOnlineInput()" class="w-full border-2 border-gray-300 rounded-xl p-3 text-sm outline-none focus:border-emerald-400 transition"><option value="student">👨‍🎓 সাধারণ ছাত্র</option><option value="cr">🎒 ক্লাস রিপ্রেজেন্টেটিভ (CR)</option><option value="teacher">🧑‍🏫 ক্লাস টিচার (রশিদ স্যার)</option></select></div>
+                <div id="student-credentials"><label class="block text-xs font-bold text-gray-600 mb-1">ক্লাস রোল নম্বর (১-২৩)</label><input type="number" id="login-roll" placeholder="যেমন: ৫" class="w-full border-2 border-gray-300 rounded-xl p-3 text-sm outline-none focus:border-emerald-400 transition"></div>
+                <div id="cr-credentials" class="hidden"><label class="block text-xs font-bold text-gray-600 mb-1">CR ব্যক্তিগত পাসওয়ার্ড</label><input type="password" id="login-cr-pass" placeholder="পাসওয়ার্ড" class="w-full border-2 border-gray-300 rounded-xl p-3 text-sm outline-none focus:border-emerald-400 transition"></div>
+                <div id="teacher-credentials" class="hidden"><label class="block text-xs font-bold text-gray-600 mb-1">শিক্ষক ব্যক্তিগত পাসওয়ার্ড</label><input type="password" id="login-teacher-pass" placeholder="পাসওয়ার্ড" class="w-full border-2 border-gray-300 rounded-xl p-3 text-sm outline-none focus:border-emerald-400 transition"></div>
+                <button type="submit" class="w-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white font-black py-3 rounded-xl shadow-md transition active:scale-[0.98]">পোর্টালে প্রবেশ করুন ➔</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- ড্যাশবোর্ড -->
+<div id="main-dashboard" class="hidden space-y-6 fade-in">
+    <div class="bg-white p-4 rounded-2xl border-2 border-amber-200 flex justify-between items-center shadow-sm">
+        <div class="flex items-center gap-2"><span class="text-2xl" id="user-avatar">👤</span><div><span class="font-bold text-gray-700 block text-sm">বর্তমান: <span id="user-display-name" class="text-amber-600"></span></span><span id="user-badge" class="text-[10px] uppercase font-extrabold px-2 py-0.5 rounded-full text-white inline-block mt-0.5"></span></div></div>
+        <div class="flex items-center gap-2"><span id="notif-badge" class="hidden bg-red-500 text-white text-[10px] font-black px-2.5 py-1 rounded-full animate-pulse cursor-pointer" onclick="switchTab('halum')">0 পেন্ডিং</span><button onclick="handleLogout()" class="bg-red-100 hover:bg-red-200 text-red-600 font-bold px-4 py-1.5 rounded-xl text-xs transition">লগআউট 📴</button></div>
+    </div>
+    <div class="bg-amber-100 p-3 rounded-2xl border-2 border-amber-300">
+        <p class="text-xs font-bold text-amber-800 mb-2 px-1 text-center md:text-left">⚡ গ্লোবাল কন্ট্রোল প্যানেল</p>
+        <div id="nav-buttons" class="grid grid-cols-2 md:grid-cols-4 gap-2">
+            <button onclick="switchTab('halum')" class="bg-orange-500 text-white p-2.5 rounded-xl font-bold text-xs shadow-md transition hover:bg-orange-600 border-b-4 border-orange-700">🐯 হালুমের থাবা</button>
+            <button onclick="switchTab('shiku')" class="bg-blue-500 text-white p-2.5 rounded-xl font-bold text-xs shadow-md transition hover:bg-blue-600 border-b-4 border-blue-700">🦊 শিকুর সিট</button>
+            <button id="nav-ikri" onclick="switchTab('ikri')" class="bg-pink-500 text-white p-2.5 rounded-xl font-bold text-xs shadow-md transition hover:bg-pink-600 border-b-4 border-pink-700">👧 ইকরির ফিল্টার</button>
+            <button onclick="switchTab('tuktuki')" class="bg-green-600 text-white p-2.5 rounded-xl font-bold text-xs shadow-md transition hover:bg-green-700 border-b-4 border-green-800">🎒 টুকটুকির খাতা</button>
+            <button id="nav-chat" onclick="switchTab('chat')" class="bg-purple-600 text-white p-2.5 rounded-xl font-bold text-xs shadow-md transition hover:bg-purple-700 border-b-4 border-purple-800">💬 গোপন চ্যাট</button>
+            <button onclick="switchTab('rules')" class="bg-indigo-600 text-white p-2.5 rounded-xl font-bold text-xs shadow-md transition hover:bg-indigo-700 border-b-4 border-indigo-800">📖 রুল বুক</button>
+        </div>
+        <div id="nav-sos-btn" class="hidden mt-2"><button onclick="switchTab('sos')" class="w-full bg-red-600 text-white p-2.5 rounded-xl font-bold text-xs shadow-md transition hover:bg-red-700 border-b-4 border-red-800 animate-pulse">🚨 জরুরি বাঁশি (SOS)</button></div>
+    </div>
+
+    <div class="bg-white rounded-3xl p-6 md:p-8 shadow-xl border-4 border-amber-200 min-h-[420px] relative pt-12">
+        <div class="absolute top-3 right-6 text-xs font-bold text-gray-400 bg-gray-100 px-3 py-1 rounded-full border" id="active-tab-indicator">মিশন ট্র্যাকার</div>
+
+        <!-- TAB: হালুম -->
+        <div id="tab-halum" class="hidden space-y-4">
+            <h3 class="text-xl font-black text-orange-500">🐯 হালুমের থাবা পোর্টাল</h3>
+            <div id="kuddus-expelled-banner" class="hidden"><div class="bg-gradient-to-r from-green-500 to-emerald-600 text-white p-6 rounded-2xl text-center explosion shadow-2xl border-4 border-green-300"><span class="text-6xl block mb-3">🎉🏆🎉</span><h2 class="text-2xl font-black">কুদ্দুস বহিষ্কৃত!</h2><p class="text-green-100 mt-2 text-sm font-bold">৩টি বৈধ অভিযোগ গৃহীত। কুদ্দুস আর এই ক্লাসে নেই!</p><div id="accepted-complaints-list" class="mt-4 space-y-2 text-left max-w-md mx-auto"></div></div></div>
+            <div id="strike-section" class="bg-orange-50 p-4 rounded-xl border border-orange-200">
+                <div class="flex justify-between text-xs font-bold mb-1"><span>কুদ্দুসের স্ট্রাইক অগ্রগতি</span><span id="strike-count" class="text-red-600 font-extrabold text-sm">স্ট্রাইক: ০ / ৩</span></div>
+                <div class="w-full bg-orange-200 h-4 rounded-full overflow-hidden"><div id="strike-bar" class="bg-red-600 h-4 transition-all duration-500 rounded-full" style="width:0%"></div></div>
+                <p id="strike-msg" class="text-[11px] text-orange-800 font-bold mt-2">⚠️ কুদ্দুসকে বহিষ্কার করতে ৩টি বৈধ স্ট্রাইক প্রয়োজন।</p>
+            </div>
+            <div id="complaint-form" class="hidden space-y-3 bg-gray-50 p-4 rounded-xl border">
+                <h4 class="text-xs font-black text-gray-700 uppercase tracking-wide">👨‍🎓 নতুন অভিযোগ জমা দিন</h4>
+                <div><label class="block text-[11px] font-bold text-gray-500 mb-1">১. অপরাধের ধরন:</label><select id="comp-desc" class="w-full p-2.5 text-xs rounded border outline-none bg-white"><option value="বেঞ্চ দখল">বেঞ্চ দখল এবং বসার জায়গা না দেওয়া</option><option value="টিফিন কেড়ে নেওয়া">জোর করে অন্যের খাবার কেড়ে নেওয়া</option><option value="ওয়াশরুম ট্যাক্স">ওয়াশরুমে অবৈধ ট্যাক্স আদায়</option><option value="মারপিট">শিক্ষার্থীদের সাথে মারপিট</option><option value="হুমকি">হুমকি দিয়ে টাকা চাওয়া</option></select></div>
+                <div><label class="block text-[11px] font-bold text-gray-500 mb-1">২. বিস্তারিত মন্তব্য:</label><textarea id="comp-comment" placeholder="ঘটনাটি লিখুন..." class="w-full p-2 text-xs rounded border h-16 bg-white outline-none focus:border-orange-400 resize-none"></textarea></div>
+                <div><label class="block text-[11px] font-bold text-gray-500 mb-1">৩. প্রমাণের ছবি (ঐচ্ছিক):</label><input type="file" id="comp-image" accept="image/*" onchange="previewImg(event)" class="w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-orange-50 file:text-orange-700 hover:file:bg-orange-100 cursor-pointer"><div id="img-preview-box" class="hidden mt-2 border-2 border-dashed border-gray-300 rounded-xl p-2 bg-white text-center"><img id="img-preview-src" src="#" alt="Preview" class="max-h-32 mx-auto rounded-lg"></div></div>
+                <button onclick="submitComplaint()" class="w-full bg-orange-500 text-white font-bold py-2 rounded text-xs transition hover:bg-orange-600 shadow">💥 প্রমাণসহ অভিযোগ পাঠান</button>
+                <p id="comp-success" class="hidden text-xs text-green-600 bg-green-50 p-2 rounded border border-green-200 font-bold"></p>
+            </div>
+            <div id="teacher-panel" class="hidden space-y-3 bg-blue-50 p-5 rounded-xl border border-blue-300">
+                <h4 class="text-sm font-black text-blue-800">🧑‍🏫 রশিদ স্যারের কন্ট্রোল রুম — সম্পূর্ণ হিস্ট্রি</h4>
+                <div class="grid grid-cols-4 gap-2">
+                    <div class="bg-white p-2.5 rounded-lg text-center border shadow-sm"><p class="text-xl font-black text-gray-700" id="st-total">০</p><p class="text-[9px] text-gray-500 font-bold">মোট</p></div>
+                    <div class="bg-yellow-50 p-2.5 rounded-lg text-center border border-yellow-200 shadow-sm"><p class="text-xl font-black text-yellow-600" id="st-pending">০</p><p class="text-[9px] text-yellow-600 font-bold">পেন্ডিং</p></div>
+                    <div class="bg-green-50 p-2.5 rounded-lg text-center border border-green-200 shadow-sm"><p class="text-xl font-black text-green-600" id="st-accepted">০</p><p class="text-[9px] text-green-600 font-bold">বৈধ</p></div>
+                    <div class="bg-red-50 p-2.5 rounded-lg text-center border border-red-200 shadow-sm"><p class="text-xl font-black text-red-600" id="st-rejected">০</p><p class="text-[9px] text-red-600 font-bold">বাতিল</p></div>
+                </div>
+                <div id="comp-list" class="space-y-3 max-h-[500px] overflow-y-auto"></div>
+            </div>
+            <div id="halum-cr-msg" class="hidden"><p class="text-xs text-red-700 bg-red-50 p-3 rounded border border-red-200 font-bold">🔒 CR হিসেবে সরাসরি অভিযোগ সাবমিট করতে পারবেন না। তবে স্ট্রাইক প্রগ্রেস দেখতে পাবেন।</p></div>
+        </div>
+
+        <!-- TAB: শিকু -->
+        <div id="tab-shiku" class="hidden space-y-4">
+            <h3 class="text-xl font-black text-blue-500">🦊 শিকুর বৈজ্ঞানিক সিট প্ল্যানার</h3>
+            <div class="bg-blue-50 p-3 rounded-xl border border-blue-200 text-xs text-blue-800"><p class="font-bold">📏 কম উচ্চতা সামনে, চিকিৎসাগত সমস্যা = অগ্রাধিকার। সবাইকে উচ্চতা অনুযায়ী বসানো হয়েছে। <span class="text-red-600">⛔ কুদ্দুস = বিপজ্জনক চিহ্নিত</span></p></div>
+
+            <!-- স্যারের এডিট মোড কন্ট্রোল -->
+            <div id="teacher-edit-controls" class="hidden">
+                <div class="bg-gradient-to-r from-red-50 to-orange-50 p-4 rounded-2xl border-2 border-red-300 space-y-3 siren-banner">
+                    <div class="flex items-center justify-between flex-wrap gap-2">
+                        <div class="flex items-center gap-2">
+                            <span class="text-xl">🧑‍🏫</span>
+                            <h4 class="text-sm font-black text-red-700">স্যারের সিট চেকিং প্যানেল</h4>
+                        </div>
+                        <button id="edit-mode-btn" onclick="toggleEditMode()" class="edit-toggle bg-white border-2 border-gray-300 text-gray-700 font-black py-2 px-5 rounded-xl text-xs shadow-md transition hover:border-red-400">
+                            ✏️ এডিট মোড চালু করুন
+                        </button>
+                    </div>
+                    <p class="text-[11px] text-red-600 font-bold">📋 এডিট মোড চালু করলে প্রতিটি শিক্ষার্থীর পাশে চেকবক্স আসবে। যে জায়গায় নেই সেটি আনচেক করুন। তারপর "যাচাই করুন" চাপুন — কেউ জায়গায় না থাকলে সাইরেন বাজবে!</p>
+                    <div id="edit-mode-stats" class="hidden bg-white p-3 rounded-xl border border-red-200">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-4 text-xs font-bold">
+                                <span class="text-green-600" id="edit-present-count">✅ উপস্থিত: ০</span>
+                                <span class="text-red-600" id="edit-absent-count">❌ অনুপস্থিত: ০</span>
+                            </div>
+                            <button onclick="resetEditChecks()" class="text-[10px] text-gray-500 hover:text-red-600 font-bold underline transition">সব রিসেট করুন</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- সাইরেন অ্যালার্ট ব্যানার -->
+            <div id="siren-alert-banner" class="hidden">
+                <div class="bg-red-600 text-white p-4 rounded-2xl shadow-2xl border-4 border-red-400 siren-flash text-center">
+                    <div class="flex items-center justify-center gap-3 mb-2">
+                        <span class="text-4xl" style="animation:sF .3s ease-in-out infinite alternate">🚨</span>
+                        <h3 class="text-xl font-black">সাইরেন চালু আছে!</h3>
+                        <span class="text-4xl" style="animation:sF .3s ease-in-out infinite alternate">🚨</span>
+                    </div>
+                    <p class="text-red-100 text-xs font-bold mb-1" id="siren-missing-names"></p>
+                    <p class="text-red-200 text-[10px]">উপরের শিক্ষার্থীরা তাদের নির্ধারিত সিটে নেই!</p>
+                    <button onclick="stopSiren()" class="mt-3 bg-white text-red-600 font-black py-2 px-8 rounded-xl text-sm shadow-lg transition hover:bg-red-50 active:scale-95">🔇 সাইরেন বন্ধ করুন</button>
+                </div>
+            </div>
+
+            <div id="siren-overlay" class="rounded-xl p-1"><div class="bg-gray-900 p-4 rounded-xl"><div class="text-center text-xs text-emerald-400 font-bold mb-3 border-b border-gray-700 pb-2">👨‍🏫 ব্ল্যাকবোর্ড</div><div id="classroom-grid" class="grid grid-cols-2 md:grid-cols-4 gap-2 text-center text-xs text-white"></div></div></div>
+            <div class="bg-yellow-50 p-4 rounded-xl border-2 border-yellow-300 space-y-3">
+                <h4 class="text-xs font-black text-yellow-800 uppercase">🔍 সিট ভেরিফিকেশন</h4>
+                <div id="seat-verify-list" class="space-y-2 max-h-60 overflow-y-auto"></div>
+                <button onclick="verifySeating()" class="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-black py-2.5 rounded-xl text-xs transition shadow">🔍 সিট যাচাই করুন</button>
+                <div id="siren-result" class="hidden"></div>
+            </div>
+        </div>
+
+        <!-- TAB: ইকরি -->
+        <div id="tab-ikri" class="hidden space-y-4">
+            <h3 class="text-xl font-black text-pink-500">👧 ইকরির সিলেবাস ফিল্টার</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-pink-50 p-4 rounded-xl border border-pink-200"><h4 class="text-xs font-black text-pink-700 mb-2">📚 সাবজেক্ট লিস্ট</h4><div id="subject-list" class="space-y-1"></div></div>
+                <div class="bg-indigo-50 p-4 rounded-xl border border-indigo-200"><h4 class="text-xs font-black text-indigo-700 mb-2">📝 পরীক্ষার সূচি</h4><div id="exam-list" class="space-y-1"></div></div>
+            </div>
+            <div class="bg-gradient-to-r from-pink-50 to-purple-50 p-4 rounded-xl border-2 border-pink-200 space-y-3">
+                <h4 class="text-xs font-black text-pink-700 uppercase">🤖 AI সিলেবাস তুলনা</h4>
+                <textarea id="kuddus-syllabus" placeholder="কুদ্দুসের দেওয়া সিলেবাস পেস্ট করুন..." class="w-full p-3 text-xs rounded-xl border h-24 bg-white outline-none focus:border-pink-400 resize-none"></textarea>
+                <button onclick="aiCompare()" id="ai-btn" class="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white font-black py-2.5 rounded-xl text-xs transition shadow">🤖 AI তুলনা শুরু করুন</button>
+                <div id="ai-result" class="hidden"></div>
+            </div>
+        </div>
+
+        <!-- TAB: টুকটুকি -->
+        <div id="tab-tuktuki" class="hidden space-y-4">
+            <h3 class="text-xl font-black text-green-600">🎒 টুকটুকির লেজার</h3>
+            <div class="grid grid-cols-2 gap-4 text-center">
+                <div class="bg-red-50 p-4 rounded-xl border border-red-200"><span class="text-xs text-gray-500 block">মোট চাঁদাবাজি</span><span id="cash-count" class="text-2xl font-black text-red-600">০ ৳</span></div>
+                <div class="bg-orange-50 p-4 rounded-xl border border-orange-200"><span class="text-xs text-gray-500 block">মোট টিফিন চুরি</span><span id="tiffin-count" class="text-2xl font-black text-orange-600">০ টি</span></div>
+            </div>
+            <div class="bg-green-50 p-4 rounded-2xl border-2 border-green-200 space-y-3">
+                <h4 class="text-xs font-black text-green-800 uppercase">✍️ নতুন এন্ট্রি</h4>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-2">
+                    <div><label class="block text-[10px] font-bold text-gray-500 mb-0.5">ভিক্টিম</label><input type="text" id="lv-victim" placeholder="রনি" class="w-full p-2 text-xs rounded border outline-none bg-white"></div>
+                    <div><label class="block text-[10px] font-bold text-gray-500 mb-0.5">ধরন</label><select id="lv-type" onchange="toggleLvFields()" class="w-full p-2 text-xs rounded border outline-none bg-white"><option value="cash">💵 চাঁদাবাজি</option><option value="tiffin">🍔 টিফিন চুরি</option></select></div>
+                    <div id="lv-amt-block"><label class="block text-[10px] font-bold text-gray-500 mb-0.5">টাকা (৳)</label><input type="number" id="lv-amt" placeholder="৫" class="w-full p-2 text-xs rounded border outline-none bg-white"></div>
+                    <div id="lv-item-block" class="hidden"><label class="block text-[10px] font-bold text-gray-500 mb-0.5">কী খেয়েছে?</label><input type="text" id="lv-item" placeholder="সিঙ্গাড়া" class="w-full p-2 text-xs rounded border outline-none bg-white"></div>
+                    <div class="flex items-end"><button onclick="addLedger()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 rounded text-xs transition shadow">খাতায় তুলুন 💾</button></div>
+                </div>
+            </div>
+            <div class="border rounded-xl overflow-hidden bg-white shadow-sm"><table class="w-full text-left border-collapse text-xs"><thead><tr class="bg-gray-100 border-b text-gray-600 font-bold"><th class="p-2.5">ভিক্টিম</th><th class="p-2.5">ধরন</th><th class="p-2.5">বিবরণ</th><th class="p-2.5 text-right">সময়</th></tr></thead><tbody id="ledger-tbody" class="divide-y text-gray-700"></tbody></table></div>
+        </div>
+
+        <!-- TAB: চ্যাট -->
+        <div id="tab-chat" class="hidden space-y-4">
+            <h3 class="text-xl font-black text-purple-600">💬 গোপন চ্যাট রুম</h3>
+            <p class="text-xs text-purple-700 bg-purple-50 p-2.5 rounded-xl border border-purple-200 font-bold">🔒 আপনার নাম ও রোল গোপন থাকবে। সবাই এখানে মেসেজ পাঠাতে পারবে।</p>
+            <div id="chat-box" class="bg-gray-50 border-2 border-purple-200 rounded-2xl p-4 h-64 overflow-y-auto space-y-2"></div>
+            <div id="chat-input-area" class="flex gap-2"><input type="text" id="chat-input" onkeypress="if(event.key==='Enter')sendChat()" placeholder="বেনামি মেসেজ লিখুন..." class="flex-1 border-2 border-purple-300 rounded-xl px-4 py-2 text-sm outline-none focus:border-purple-500 bg-white"><button onclick="sendChat()" class="bg-purple-600 hover:bg-purple-700 text-white font-bold px-6 py-2 rounded-xl text-sm transition shadow">পাঠান 🚀</button></div>
+        </div>
+
+        <!-- TAB: রুল বুক -->
+        <div id="tab-rules" class="hidden space-y-4">
+            <h3 class="text-xl font-black text-indigo-600">📖 ক্লাস রুল বুক</h3>
+            <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded-xl border border-indigo-200 font-bold">📋 ৭ম শ্রেণি, শাখা-খ এর সকল প্রযোজ্য নিয়মাবলী এখানে তালিকাভুক্ত।</p>
+            <div class="bg-white p-3 rounded-xl border-2 border-indigo-200">
+                <div class="flex items-center gap-2 bg-indigo-50 rounded-lg p-2 border border-indigo-200">
+                    <span class="text-sm">🔍</span>
+                    <input type="text" id="rules-search" oninput="filterRules()" placeholder="রুল খুঁজুন..." class="flex-1 text-xs bg-transparent outline-none placeholder-gray-400">
+                </div>
+            </div>
+            <div id="rules-book-list" class="space-y-4"></div>
+        </div>
+
+        <!-- TAB: SOS -->
+        <div id="tab-sos" class="hidden space-y-4">
+            <h3 class="text-xl font-black text-red-600">🚨 বিপদের বাঁশি</h3>
+            <div id="cr-sos-inbox" class="hidden space-y-3 bg-red-50 p-4 rounded-xl border border-red-300">
+                <h4 class="text-sm font-black text-red-700">🎒 CR অ্যালার্ট সেন্টার — ছাত্রদের SOS</h4>
+                <p class="text-[10px] text-red-600 bg-red-100 px-3 py-1.5 rounded-lg font-bold">📌 আপনি (CR) নিজে SOS পাঠাতে পারবেন না। শুধু ছাত্রদের SOS দেখবেন ও রেসপন্স দেবেন।</p>
+                <div id="cr-sos-list" class="space-y-3 max-h-96 overflow-y-auto"></div>
+            </div>
+            <div id="sos-input-block" class="space-y-4">
+                <select id="sos-loc" class="w-full p-2 text-xs border rounded bg-white"><option value="টিফিন ক্যান্টিন">🍔 টিফিন ক্যান্টিন</option><option value="স্কুলের করিডোর">🏢 স্কুলের করিডোর</option><option value="লাইব্রেরি">📚 লাইব্রেরি</option></select>
+                <button onclick="triggerSos()" class="sos-pulse w-full bg-red-600 hover:bg-red-700 text-white font-black py-3 rounded-xl text-xs tracking-widest transition shadow-lg active:scale-95">🚨 বাঁশি বাজান (SEND SOS TO CR)</button>
+            </div>
+            <div id="cr-sos-block" class="hidden text-xs text-red-700 bg-red-50 p-3 rounded border text-center font-bold">🛑 ক্লাস রিপ্রেজেন্টেটিভ নিজে SOS পাঠাতে পারবেন না।</div>
+            <div id="sos-out" class="hidden text-center text-xs font-bold text-red-600 bg-red-50 p-3 rounded-xl animate-pulse border border-red-300"></div>
+            <div id="my-sos-area" class="hidden space-y-3 mt-4">
+                <h4 class="text-xs font-black text-emerald-700 uppercase tracking-wide">📊 আপনার SOS স্ট্যাটাস</h4>
+                <div id="my-sos-list" class="space-y-2 max-h-60 overflow-y-auto"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+
+<script>
+function sv(k,d){try{localStorage.setItem('sp_'+k,JSON.stringify(d))}catch(e){}}
+function ld(k,f){try{var d=localStorage.getItem('sp_'+k);return d?JSON.parse(d):f}catch(e){return f}}
+
+var role="",roll=0,label="",chatName="",upImg=null,sCtx=null,sOsc=null,sirenPlaying=false,editModeOn=false,seatChecks={};
+
+var stuDB=[
+{r:1,n:"আহসান হাবিব",nn:"আবু",h:142,m:0},{r:2,n:"তাসনিম জাহান",nn:"তিলক",h:138,m:0},
+{r:3,n:"রাইয়ান আহমেদ",nn:"রনি",h:145,m:1},{r:4,n:"ফারিহা সুলতানা",nn:"পরি",h:135,m:0},
+{r:5,n:"মেহেদী হাসান",nn:"মাহি",h:148,m:0},{r:6,n:"সাদিয়া আফরিন",nn:"সাজু",h:140,m:0},
+{r:7,n:"আরিফুর রহমান",nn:"অপু",h:151,m:0},{r:8,n:"নুসরাত শারমিন",nn:"নূপুর",h:137,m:0},
+{r:9,n:"ইশতিয়াক আহমেদ",nn:"ইমন",h:146,m:0},{r:10,n:"তানজিলা আক্তার",nn:"তুলি",h:139,m:0},
+{r:11,n:"মাশরাফি বিন মর্তুজা",nn:"কৌশিক",h:155,m:0},{r:12,n:"রোকাইয়া খাতুন",nn:"রুপা",h:141,m:0},
+{r:13,n:"জাহিদুল ইসলাম",nn:"জিম",h:144,m:0},{r:14,n:"নাজমুল হুদা",nn:"নয়ন",h:150,m:0},
+{r:15,n:"ফাতেমা তুজ জোহরা",nn:"ফিশু",h:136,m:0},{r:16,n:"কামরুল হাসান",nn:"কিলু",h:147,m:0},
+{r:17,n:"লাবনী আক্তার",nn:"লতা",h:143,m:0},{r:18,n:"সাইফুল ইসলাম",nn:"সাদ",h:152,m:0},
+{r:19,n:"মুনতাহা মেহরিন",nn:"মিঠূ",h:139,m:0},{r:20,n:"আব্দুল্লাহ আল মামুন",nn:"সৈকত",h:149,m:1},
+{r:21,n:"কুদ্দুস মিয়া",nn:"কুদ্দুস",h:137,m:0,bad:1},{r:22,n:"বিল্টু আহমেদ",nn:"বিল্টু",h:144,m:0},
+{r:23,n:"মিল্টু হাসান",nn:"মিল্টু",h:146,m:0}];
+
+var comps=ld('comps',[]),accComps=ld('accComps',[]),strikes=ld('strikes',0);
+var lgr=ld('lgr',[]),tCash=ld('tCash',0),tTif=ld('tTif',0);
+var chats=ld('chats',[{s:"[পরি]",m:"কুদ্দুস আবার করিডোরে দাঁড়িয়ে আছে!",t:"১০:১৫ AM"},{s:"[রনি]",m:"সবাই টিফিন ক্যান্টিনে সাবধানে যেও...",t:"১০:১৬ AM"}]);
+var sosR=ld('sos',[]);
+
+var syllabus={"বাংলা":["গদ্য ও পদ্য","ব্যাকরণ","রচনা","পত্র লেখা","অনুবাদ","বাক্য পরিবর্তন"],"ইংরেজি":["Grammar","Comprehension","Paragraph","Letter","Vocabulary","Story"],"গণিত":["বীজগণিত","জ্যামিতি","পরিমিতি","সংখ্যাপত্র","সূত্র","সমীকরণ"],"বিজ্ঞান":["পদার্থ","রাসায়নিক বিক্রিয়া","জীববিজ্ঞান","মানবদেহ","প্রকৌশল","আলো ও শব্দ"],"সমাজবিজ্ঞান":["ইতিহাস","ভূগোল","অর্থনীতি","নাগরিকত্ব","সংস্কৃতি","পরিবে্ environnement"],"ধর্ম":["আকাইদ","ইবাদত","সিরাত","নৈতিকতা","জীবনী"],"ICT":["Computer","HTML & Web","MS Word/Excel","Internet","Programming","Digital Security"]};
+var subjs=Object.keys(syllabus);
+var exams=[{n:"১ম সাময়িক",d:"জুলাই ২য় সপ্তাহ"},{n:"২য় সাময়িক",d:"অক্টোবর ১ম সপ্তাহ"},{n:"মডেল টেস্ট",d:"নভেম্বর ৩য় সপ্তাহ"},{n:"বার্ষিক পরীক্ষা",d:"ডিসেম্বর ২য় সপ্তাহ"}];
+
+var rulesBook=[
+{cat:"সাধারণ নিয়মাবলী",icon:"📋",color:"indigo",rules:[
+"সকল ছাত্রকে স্কুল ইউনিফর্ম পরে আসতে হবে।",
+"সময়মতো স্কুলে উপস্থিত থাকা বাধ্যতামূলক।",
+"শিক্ষকদের সাথে সম্মানজনক আচরণ করা বাধ্যতামূলক।",
+"সহপাঠীদের সাথে বন্ধুত্বপূর্ণ আচরণ করতে হবে।",
+"ক্লাসরুম ও স্কুল প্রাঙ্গণ পরিষ্কার রাখা সবার কর্তব্য।",
+"অন্যের জিনিসপত্র অনুমতি ছাড়া নেওয়া সম্পূর্ণ নিষিদ্ধ।",
+"স্কুলের সম্পত্তির যথাযত যত্ন নিতে হবে।"
+]},{cat:"ক্লাসরুম নিয়ম",icon:"🏫",color:"blue",rules:[
+"ক্লাসে মোবাইল ফোন বা ইলেকট্রনিক ডিভাইস ব্যবহার সম্পূর্ণ নিষিদ্ধ।",
+"ক্লাসরুমে কোলাহল বা অপ্রয়োজনীয় শব্দ করা নিষিদ্ধ।",
+"শিক্ষকের অনুমতি ছাড়া ক্লাস ত্যাগ করা নিষিদ্ধ।",
+"নির্ধারিত সিটে বসতে হবে, অন্যের সিট দখল করা নিষিদ্ধ।",
+"সবাইকে হোমওয়ার্ক ও এসাইনমেন্ট সম্পূর্ণ করে আসতে হবে।",
+"ক্লাসে মনোযোগ দিয়ে পাঠ গ্রহণ করা বাধ্যতামূলক।"
+]},{cat:"টিফিন ও বিরতি সংক্রান্ত",icon:"🍔",color:"orange",rules:[
+"অন্যের টিফিন বা খাবার জোর করে নেওয়া সম্পূর্ণ নিষিদ্ধ।",
+"টিফিন ক্যান্টিনে ধকলপ্রবণ বা হুমকিমূলক আচরণ নিষিদ্ধ।",
+"বিরতির সময় নির্ধারিত এলাকায় অবস্থান করতে হবে।",
+"ক্যান্টিনে সুশৃঙ্খলভাবে লাইনে দাঁড়িয়ে খাবার নিতে হবে।",
+"অতিরিক্ত দাম দাবি করে চাঁদাবাজি করা কঠোরভাবে নিষিদ্ধ।"
+]},{cat:"পরীক্ষা সংক্রান্ত নিয়ম",icon:"📝",color:"pink",rules:[
+"পরীক্ষায় নকল বা অসদুপায় অবলম্বন করা কঠোরভাবে নিষিদ্ধ।",
+"পরীক্ষার হলে শান্ত থাকা বাধ্যতামূলক।",
+"পরীক্ষার হলে অতিরিক্ত বই, খাতা বা ইলেকট্রনিক ডিভাইস নেওয়া নিষিদ্ধ।",
+"নির্ধারিত সময়ের পর উত্তরপত্র জমা দিতে হবে।",
+"পরীক্ষার ফলাফল নিয়ে অসন্তোষ থাকলে শিক্ষকের কাছে যথাযত প্রক্রিয়ায় আপত্তি জানাতে হবে।"
+]},{cat:"নিরাপত্তা ও শৃঙ্খলা",icon:"🛡️",color:"red",rules:[
+"ওয়াশরুম ব্যবহারে কোনো ফি বা ট্যাক্স দেওয়ার প্রয়োজন নেই — এটি সম্পূর্ণ বিনামূল্যে।",
+"হুমকি দিয়ে টাকা বা জিনিসপত্র চাওয়া কঠোরভাবে নিষিদ্ধ এবং শাস্তিযোগ্য অপরাধ।",
+"শিক্ষার্থীদের সাথে কোনো প্রকার মারপিট, বুলিং বা মানসিক নির্যাতন নিষিদ্ধ।",
+"যেকোনো সমস্যায় সাথে সাথে CR বা শিক্ষককে জানাতে হবে।",
+"অবৈধ সংগঠন বা গ্যাং তৈরি করা সম্পূর্ণ নিষিদ্ধ।",
+"স্কুল প্রাঙ্গণে দৌড়ে বা বিপজ্জনকভাবে চলাফেরা করা নিষিদ্ধ।"
+]},{cat:"শাস্তি ও জবাবদিহিতা",icon:"⚖️",color:"amber",rules:[
+"নিয়ম ভঙ্গকারীর বিরুদ্ধে শিক্ষক ও কর্তৃপক্ষ ব্যবস্থা নিতে পারবেন।",
+"৩টি বৈধ অভিযোগ প্রমাণিত হলে ক্লাস থেকে বহিষ্কারের বিধান রয়েছে।",
+"মিথ্যা অভিযোগ দায়ের করলে অভিযোগকারীর বিরুদ্ধেও ব্যবস্থা নেওয়া হবে।",
+"সকল শাস্তি স্বচ্ছ ও ন্যায্য প্রক্রিয়ায় প্রয়োগ করা হবে।"
+]}];
+
+function bn(n){return String(n).replace(/[0-9]/g,function(c){return'০১২৩৪৫৬৭৮৯'[+c]})}
+function tn(){return new Date().toLocaleTimeString('bn-BD',{hour:'2-digit',minute:'2-digit'})}
+function isExp(){return strikes>=3}
+function gS(r){return stuDB.find(function(s){return s.r===r})}
+
+/* ========== সাইরেন সিস্টেম ========== */
+function startSiren(){
+    if(sirenPlaying) return;
+    sirenPlaying = true;
+    try {
+        sCtx = new (window.AudioContext || window.webkitAudioContext)();
+        sOsc = sCtx.createOscillator();
+        var gainNode = sCtx.createGain();
+        sOsc.type = 'sawtooth';
+        sOsc.frequency.setValueAtTime(600, sCtx.currentTime);
+        gainNode.gain.setValueAtTime(0.15, sCtx.currentTime);
+        sOsc.connect(gainNode);
+        gainNode.connect(sCtx.destination);
+        sOsc.start();
+        var lfo = sCtx.createOscillator();
+        var lfoGain = sCtx.createGain();
+        lfo.frequency.setValueAtTime(1.5, sCtx.currentTime);
+        lfoGain.gain.setValueAtTime(300, sCtx.currentTime);
+        lfo.connect(lfoGain);
+        lfoGain.connect(sOsc.frequency);
+        lfo.start();
+        sirenInterval = setInterval(function(){
+            if(!sirenPlaying) return;
+            try{ sOsc.frequency.setValueAtTime(600, sCtx.currentTime); }catch(e){}
+        }, 5000);
+        sirenLfo = lfo;
+        sirenGain = gainNode;
+    } catch(e) {}
+    document.getElementById('siren-overlay').classList.add('siren-flash');
+    document.getElementById('siren-alert-banner').classList.remove('hidden');
+}
+
+function stopSiren(){
+    sirenPlaying = false;
+    try {
+        if(sOsc){ sOsc.stop(); sOsc.disconnect(); sOsc=null; }
+        if(sirenLfo){ sirenLfo.stop(); sirenLfo.disconnect(); sirenLfo=null; }
+        if(sirenGain){ sirenGain.disconnect(); sirenGain=null; }
+        if(sCtx){ sCtx.close(); sCtx=null; }
+    } catch(e){}
+    if(sirenInterval){ clearInterval(sirenInterval); sirenInterval=null; }
+    document.getElementById('siren-overlay').classList.remove('siren-flash');
+    document.getElementById('siren-alert-banner').classList.add('hidden');
+    var boxes = document.querySelectorAll('.seat-box');
+    for(var i=0;i<boxes.length;i++){
+        boxes[i].classList.remove('absent','present');
+    }
+}
+
+var sirenInterval=null, sirenLfo=null, sirenGain=null;
+
+/* ========== এডিট মোড ========== */
+function toggleEditMode(){
+    editModeOn = !editModeOn;
+    var btn = document.getElementById('edit-mode-btn');
+    var stats = document.getElementById('edit-mode-stats');
+    if(editModeOn){
+        btn.innerText = '✅ এডিট মোড চালু আছে';
+        btn.classList.add('active');
+        stats.classList.remove('hidden');
+        var sorted = getSeatedStudents();
+        for(var i=0;i<sorted.length;i++){
+            seatChecks[sorted[i].r] = true;
+        }
+    } else {
+        btn.innerText = '✏️ এডিট মোড চালু করুন';
+        btn.classList.remove('active');
+        stats.classList.add('hidden');
+    }
+    renderSeats();
+    renderSeatVerify();
+    updateEditStats();
+}
+
+function resetEditChecks(){
+    var sorted = getSeatedStudents();
+    for(var i=0;i<sorted.length;i++){
+        seatChecks[sorted[i].r] = true;
+    }
+    renderSeats();
+    renderSeatVerify();
+    updateEditStats();
+}
+
+function toggleSeatCheck(r){
+    if(!editModeOn) return;
+    seatChecks[r] = !seatChecks[r];
+    renderSeats();
+    renderSeatVerify();
+    updateEditStats();
+}
+
+function updateEditStats(){
+    if(!editModeOn) return;
+    var sorted = getSeatedStudents();
+    var p=0, a=0;
+    for(var i=0;i<sorted.length;i++){
+        if(seatChecks[sorted[i].r]) p++; else a++;
+    }
+    document.getElementById('edit-present-count').innerText = '✅ উপস্থিত: ' + bn(p);
+    document.getElementById('edit-absent-count').innerText = '❌ অনুপস্থিত: ' + bn(a);
+}
+
+/* ========== সিট অ্যারেঞ্জমেন্ট — কুদ্দুসসহ সবাই ========== */
+function getSeatedStudents(){
+    var arr = [];
+    for(var i=0;i<stuDB.length;i++){
+        arr.push(stuDB[i]);
+    }
+    arr.sort(function(a,b){
+        if(a.m !== b.m) return b.m - a.m;
+        return a.h - b.h;
+    });
+    return arr;
+}
+
+function renderSeats(){
+    var grid = document.getElementById('classroom-grid');
+    var sorted = getSeatedStudents();
+    var h = '';
+    for(var i=0;i<sorted.length;i++){
+        var s = sorted[i];
+        var isKuddus = s.bad === 1;
+        var extra = s.m ? ' | 🏥' : '';
+        var chkClass = '';
+        if(editModeOn){
+            if(seatChecks[s.r] === false){
+                chkClass = ' absent';
+            } else if(seatChecks[s.r] === true){
+                chkClass = ' present';
+            }
+        }
+        var kuddusClass = isKuddus ? ' kuddus-seat' : '';
+        var checkHtml = '';
+        if(editModeOn){
+            var chkd = seatChecks[s.r] !== false ? 'checked' : '';
+            var statusTxt = seatChecks[s.r]===false ? 'জায়গায় নেই' : 'জায়গায় আছে';
+            var statusClr = seatChecks[s.r]===false ? 'text-red-400' : 'text-green-400';
+            checkHtml = '<div class="mt-1"><label class="flex items-center justify-center gap-1 cursor-pointer"><input type="checkbox" '+chkd+' onchange="toggleSeatCheck('+s.r+')" class="w-3.5 h-3.5 accent-green-500 rounded"><span class="text-[9px] '+statusClr+'">'+statusTxt+'</span></label></div>';
+        }
+        var kuddusBadge = '';
+        if(isKuddus){
+            kuddusBadge = '<div class="kuddus-badge absolute -top-1.5 -right-1.5 bg-red-600 text-white text-[8px] font-black px-1.5 py-0.5 rounded-full border border-red-400 shadow">⛔ BAD</div>';
+        }
+        var nameClr = isKuddus ? 'text-red-400' : 'text-white';
+        var nnClr = isKuddus ? 'text-red-300' : 'text-gray-400';
+        h += '<div class="seat-box bg-gray-800 border border-gray-600 rounded-lg p-2'+chkClass+kuddusClass+' relative">'+kuddusBadge+'<div class="font-black text-[10px] text-emerald-400">রোল '+bn(s.r)+'</div><div class="'+nameClr+' text-[11px] font-bold leading-tight mt-0.5">'+s.nn+'</div><div class="'+nnClr+' text-[9px]">'+bn(s.h)+'cm'+extra+'</div>'+checkHtml+'</div>';
+    }
+    grid.innerHTML = h;
+}
+
+function renderSeatVerify(){
+    var list = document.getElementById('seat-verify-list');
+    var sorted = getSeatedStudents();
+    if(!editModeOn){
+        var h = '';
+        for(var i=0;i<sorted.length;i++){
+            var s = sorted[i];
+            var isKuddus = s.bad === 1;
+            var nameStyle = isKuddus ? 'text-red-600 font-black' : 'font-bold text-gray-700';
+            var rollBg = isKuddus ? 'bg-red-100 text-red-700' : 'bg-blue-100 text-blue-700';
+            var kuddusTag = isKuddus ? ' <span class="kuddus-badge inline-block bg-red-600 text-white text-[8px] font-black px-1.5 py-0.5 rounded-full">⛔ বিপজ্জনক</span>' : '';
+            h += '<div class="verify-row flex items-center justify-between bg-white p-2 rounded-lg border border-gray-200 text-xs"><div class="flex items-center gap-2"><span class="w-7 h-7 '+rollBg+' rounded-lg flex items-center justify-center font-black text-[10px]">'+bn(s.r)+'</span><span class="'+nameStyle+'">'+s.nn+'</span>'+kuddusTag+'</div><span class="text-gray-400 text-[10px]">সারি ' + bn(Math.floor(i/4)+1) + ', বেঞ্চ ' + bn((i%4)+1) + '</span></div>';
+        }
+        list.innerHTML = h;
+        return;
+    }
+    var h = '';
+    for(var i=0;i<sorted.length;i++){
+        var s = sorted[i];
+        var isKuddus = s.bad === 1;
+        var isAbsent = seatChecks[s.r] === false;
+        var rowClass = isAbsent ? 'verify-row marked-absent' : 'verify-row';
+        var chkd = !isAbsent ? 'checked' : '';
+        var statusBadge = isAbsent ? '<span class="bg-red-100 text-red-700 text-[9px] font-black px-2 py-0.5 rounded-full border border-red-300">❌ অনুপস্থিত</span>' : '<span class="bg-green-100 text-green-700 text-[9px] font-black px-2 py-0.5 rounded-full border border-green-300">✅ উপস্থিত</span>';
+        var kuddusTag = isKuddus ? ' <span class="kuddus-badge inline-block bg-red-600 text-white text-[8px] font-black px-1.5 py-0.5 rounded-full">⛔ বিপজ্জনক</span>' : '';
+        var nameStyle = isAbsent ? 'text-red-700 line-through' : (isKuddus ? 'text-red-600 font-black' : 'text-gray-700');
+        var rollBg = isAbsent ? 'bg-red-100 text-red-700' : (isKuddus ? 'bg-red-100 text-red-700' : 'bg-blue-100 text-blue-700');
+        h += '<div class="'+rowClass+' flex items-center justify-between bg-white p-2.5 rounded-lg border border-gray-200 text-xs"><div class="flex items-center gap-2"><input type="checkbox" '+chkd+' onchange="toggleSeatCheck('+s.r+')" class="w-4 h-4 accent-green-500 rounded cursor-pointer"><span class="w-7 h-7 '+rollBg+' rounded-lg flex items-center justify-center font-black text-[10px]">'+bn(s.r)+'</span><div><span class="font-bold '+nameStyle+' block">'+s.nn+'</span><span class="text-[9px] text-gray-400">সারি '+bn(Math.floor(i/4)+1)+', বেঞ্চ '+bn((i%4)+1)+'</span></div>'+kuddusTag+'</div>'+statusBadge+'</div>';
+    }
+    list.innerHTML = h;
+}
+
+function verifySeating(){
+    if(!editModeOn && role === 'teacher'){
+        toggleEditMode();
+        var r = document.getElementById('siren-result');
+        r.classList.remove('hidden');
+        r.innerHTML = '<div class="bg-yellow-50 border-2 border-yellow-300 p-3 rounded-xl text-xs text-yellow-800 font-bold text-center">👆 উপরে প্রতিটি শিক্ষার্থীর চেকবক্স আনচেক করুন যে জায়গায় নেই, তারপর আবার "যাচাই করুন" চাপুন।</div>';
+        return;
+    }
+    if(!editModeOn){
+        var r = document.getElementById('siren-result');
+        r.classList.remove('hidden');
+        r.innerHTML = '<div class="bg-gray-50 border border-gray-300 p-3 rounded-xl text-xs text-gray-500 font-bold text-center">এডিট মোড শুধু স্যারের জন্য উপলব্ধ।</div>';
+        return;
+    }
+    var sorted = getSeatedStudents();
+    var absentList = [];
+    for(var i=0;i<sorted.length;i++){
+        if(seatChecks[sorted[i].r] === false){
+            absentList.push(sorted[i]);
+        }
+    }
+    var r = document.getElementById('siren-result');
+    r.classList.remove('hidden');
+    if(absentList.length === 0){
+        stopSiren();
+        r.innerHTML = '<div class="bg-green-50 border-2 border-green-300 p-4 rounded-xl text-center help-anim"><span class="text-3xl block mb-1">✅</span><p class="text-green-700 font-black text-sm">সবাই জায়গায় বসে আছে!</p><p class="text-green-600 text-[10px] mt-1">কোনো শিক্ষার্থী অনুপস্থিত নেই।</p></div>';
+        return;
+    }
+    var namesHtml = '';
+    for(var i=0;i<absentList.length;i++){
+        var isK = absentList[i].bad === 1;
+        var extraBadge = isK ? ' ⛔' : '';
+        namesHtml += '<span class="inline-block bg-white text-red-700 font-black text-xs px-3 py-1 rounded-full border border-red-300 mx-1 my-1">'+absentList[i].nn+' (রোল '+bn(absentList[i].r)+')'+extraBadge+'</span>';
+    }
+    document.getElementById('siren-missing-names').innerHTML = namesHtml;
+    r.innerHTML = '<div class="bg-red-50 border-2 border-red-400 p-4 rounded-xl help-anim"><div class="flex items-center gap-2 mb-2"><span class="text-2xl">🚨</span><p class="text-red-700 font-black text-sm">সাইরেন বাজানো হয়েছে!</p></div><p class="text-red-600 text-xs font-bold">'+bn(absentList.length)+' জন শিক্ষার্থী তাদের নির্ধারিত সিটে নেই!</p><div class="mt-2 flex flex-wrap">'+namesHtml+'</div></div>';
+    startSiren();
+}
+
+/* ========== ওয়েলকাম ========== */
+function enterFromWelcome(){
+    var wp=document.getElementById('welcome-page');
+    wp.classList.add('page-fade-out');
+    setTimeout(function(){
+        wp.style.display='none';
+        document.getElementById('main-header').classList.remove('hidden');
+        document.getElementById('main-header').classList.add('page-fade-in');
+        document.getElementById('main-content').classList.remove('hidden');
+        document.getElementById('main-content').classList.add('page-fade-in');
+    },500);
+}
+
+/* ========== লগইন ========== */
+function selectLoginMode(m){document.getElementById('login-mode-select').classList.add('hidden');document.getElementById(m==='offline'?'offline-login-form':'online-login-form').classList.remove('hidden')}
+function backToModeSelect(){
+    document.getElementById('offline-login-form').classList.add('hidden');
+    document.getElementById('online-login-form').classList.add('hidden');
+    document.getElementById('login-mode-select').classList.remove('hidden');
+    document.getElementById('offline-roll').value="";
+    document.getElementById('offline-user-info').innerHTML="";
+    document.getElementById('offline-sos-area').classList.add('hidden');
+    document.getElementById('offline-sos-result').classList.add('hidden');
+    document.getElementById('login-roll').value="";
+    document.getElementById('login-cr-pass').value="";
+    document.getElementById('login-teacher-pass').value="";
+    document.getElementById('login-role').value="student";
+    toggleOnlineInput();
+    var b=document.getElementById('offline-sos-btn');
+    if(b){b.disabled=false;b.classList.remove('opacity-40');b.classList.add('sos-pulse')}
+}
+function toggleOnlineInput(){
+    var r=document.getElementById('login-role').value;
+    document.getElementById('student-credentials').classList.toggle('hidden',r!=='student');
+    document.getElementById('cr-credentials').classList.toggle('hidden',r!=='cr');
+    document.getElementById('teacher-credentials').classList.toggle('hidden',r!=='teacher');
+}
+function handleOfflineRollInput(){
+    var v=parseInt(document.getElementById('offline-roll').value),info=document.getElementById('offline-user-info');
+    document.getElementById('offline-sos-area').classList.add('hidden');
+    document.getElementById('offline-sos-result').classList.add('hidden');
+    var b=document.getElementById('offline-sos-btn');if(b){b.disabled=false;b.classList.remove('opacity-40');b.classList.add('sos-pulse')}
+    if(!v){info.innerHTML="";return}
+    if(v===21){info.innerHTML='<div class="bg-red-100 border-2 border-red-400 p-4 rounded-xl help-anim"><div class="flex items-center gap-2 mb-2"><span class="text-2xl">🛑</span><p class="text-red-700 font-black text-sm">কুদ্দুস সনাক্ত!</p></div><p class="text-red-600 text-xs font-bold">রোল ২১ — এই পোর্টালে ঢোকার অধিকার নেই।</p></div>';return}
+    var s=gS(v);
+    if(!s){info.innerHTML='<p class="text-gray-400 text-xs italic">রোল '+v+' পাওয়া যায়নি। ১-২৩ এর মধ্যে দিন।</p>';return}
+    info.innerHTML='<div class="bg-green-50 border-2 border-green-300 p-4 rounded-xl help-anim"><div class="flex items-center gap-3"><div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center text-white text-xl font-black shadow">'+s.r+'</div><div><p class="text-green-700 font-black text-sm">'+s.n+'</p><p class="text-green-600 text-xs font-bold">'+s.nn+' | রোল: '+s.r+'</p></div></div></div>';
+    document.getElementById('offline-sos-area').classList.remove('hidden');
+}
+function sendOfflineSos(){
+    var v=parseInt(document.getElementById('offline-roll').value),s=gS(v);
+    if(!s||v===21)return;
+    var loc=document.getElementById('offline-sos-loc').value,t=tn();
+    sosR.push({id:Date.now(),sender:s.n+' ('+s.nn+')',roll:s.r,loc:loc,time:t,resp:null,respTime:null});
+    sv('sos',sosR);
+    var b=document.getElementById('offline-sos-btn');b.disabled=true;b.classList.add('opacity-40');b.classList.remove('sos-pulse');
+    var r=document.getElementById('offline-sos-result');r.classList.remove('hidden');
+    r.innerHTML='<div class="bg-red-50 border-2 border-red-300 p-4 rounded-xl help-anim"><p class="text-red-700 font-black text-sm text-center">🚨 SOS সফল!</p><div class="mt-2 bg-white p-3 rounded-lg border text-xs space-y-1"><p><b>প্রেরক:</b> '+s.n+'</p><p><b>লোকেশন:</b> '+loc+'</p><p><b>সময়:</b> '+t+'</p></div></div>';
+}
+function handleOnlineLogin(e){
+    e.preventDefault();var r=document.getElementById('login-role').value;
+    if(r==='student'){
+        var v=parseInt(document.getElementById('login-roll').value);
+        if(!v)return alert("রোল নম্বর দিন!");
+        if(v===21){alert("🛑 কুদ্দুস সনাক্ত! রোল ২১ নিষিদ্ধ!");document.getElementById('login-roll').value="";return}
+        var s=gS(v);if(!s)return alert("ভুল রোল! ১-২৩ এর মধ্যে দিন।");
+        role='student';roll=s.r;label=s.n+' (রোল '+s.r+')';chatName='['+s.nn+']';
+        document.getElementById('user-display-name').innerText=s.n+' ('+s.nn+')';
+        setBadge('রোল: '+s.r,'bg-orange-500','👨‍🎓');
+    }else if(r==='cr'){
+        if(document.getElementById('login-cr-pass').value!=='cr123')return alert("ভুল CR পাসওয়ার্ড!");
+        role='cr';roll=0;label="বিল্টু/মিল্টু (CR)";chatName='[🎒 CR]';
+        document.getElementById('user-display-name').innerText="বিল্টু/মিল্টু (CR)";
+        setBadge('ক্লাস রিপ্রেজেন্টেটিভ','bg-green-600','🎒');
+    }else{
+        if(document.getElementById('login-teacher-pass').value!=='teacher123')return alert("ভুল শিক্ষক পাসওয়ার্ড!");
+        role='teacher';roll=0;label="রশিদ স্যার";chatName='[🧑‍🏫 রশিদ স্যার]';
+        document.getElementById('user-display-name').innerText="রশিদ স্যার (ফুল অ্যাক্সেস)";
+        setBadge('শ্রেণি শিক্ষক','bg-blue-600','🧑‍🏫');
+    }
+    document.getElementById('view-login-page').classList.add('hidden');
+    document.getElementById('main-dashboard').classList.remove('hidden');
+    switchTab('halum');applyAuth();
+}
+function setBadge(t,c,av){var b=document.getElementById('user-badge');b.innerText=t;b.className=c+' text-[10px] font-extrabold px-2 py-0.5 rounded-full text-white inline-block mt-0.5';document.getElementById('user-avatar').innerText=av}
+function handleLogout(){
+    role="";roll=0;editModeOn=false;seatChecks={};
+    stopSiren();
+    document.getElementById('main-dashboard').classList.add('hidden');
+    document.getElementById('view-login-page').classList.remove('hidden');
+    backToModeSelect();
+}
+
+/* ========== অথোরাইজেশন ========== */
+function applyAuth(){
+    var ids=['complaint-form','teacher-panel','halum-cr-msg','cr-sos-inbox','cr-sos-block','chat-input-area','my-sos-area','kuddus-expelled-banner','teacher-edit-controls'];
+    for(var i=0;i<ids.length;i++)document.getElementById(ids[i]).classList.add('hidden');
+    document.getElementById('sos-input-block').classList.remove('hidden');
+    document.getElementById('strike-section').classList.remove('hidden');
+    document.getElementById('nav-ikri').style.display='';
+    document.getElementById('nav-chat').style.display='';
+    if(role==='teacher'){
+        document.getElementById('nav-sos-btn').classList.add('hidden');
+        document.getElementById('nav-ikri').style.display='none';
+        document.getElementById('nav-chat').style.display='none';
+    }else{
+        document.getElementById('nav-sos-btn').classList.remove('hidden');
+    }
+    var nb=document.getElementById('notif-badge');
+    if(role==='teacher'){var pc=0;for(var i=0;i<comps.length;i++){if(comps[i].st==='pending')pc++}if(pc>0){nb.classList.remove('hidden');nb.innerText=bn(pc)+' পেন্ডিং'}else{nb.classList.add('hidden')}}
+    else{nb.classList.add('hidden')}
+    if(role==='student'){
+        document.getElementById('complaint-form').classList.remove('hidden');
+        document.getElementById('my-sos-area').classList.remove('hidden');
+        document.getElementById('sos-input-block').classList.remove('hidden');
+        document.getElementById('chat-input-area').classList.remove('hidden');
+        if(isExp()){document.getElementById('kuddus-expelled-banner').classList.remove('hidden');document.getElementById('strike-section').classList.add('hidden');document.getElementById('complaint-form').classList.add('hidden');showExp()}
+    }else if(role==='cr'){
+        document.getElementById('halum-cr-msg').classList.remove('hidden');
+        document.getElementById('sos-input-block').classList.add('hidden');
+        document.getElementById('cr-sos-block').classList.remove('hidden');
+        document.getElementById('cr-sos-inbox').classList.remove('hidden');
+        document.getElementById('chat-input-area').classList.remove('hidden');
+        if(isExp()){document.getElementById('kuddus-expelled-banner').classList.remove('hidden');document.getElementById('strike-section').classList.add('hidden');showExp()}
+    }else if(role==='teacher'){
+        document.getElementById('teacher-panel').classList.remove('hidden');
+        document.getElementById('teacher-edit-controls').classList.remove('hidden');
+        document.getElementById('chat-input-area').classList.add('hidden');
+        if(isExp()){document.getElementById('kuddus-expelled-banner').classList.remove('hidden');document.getElementById('strike-section').classList.add('hidden');showExp()}
+        renderTeacherPanel();
+    }
+    updateStrike();renderChat();
+}
+
+/* ========== ট্যাব সুইচ ========== */
+function switchTab(tab){
+    var tabs=['halum','shiku','ikri','tuktuki','chat','rules','sos'];
+    for(var i=0;i<tabs.length;i++)document.getElementById('tab-'+tabs[i]).classList.add('hidden');
+    document.getElementById('tab-'+tab).classList.remove('hidden');
+    var names={halum:'🐯 হালুমের থাবা',shiku:'🦊 শিকুর সিট',ikri:'👧 ইকরির ফিল্টার',tuktuki:'🎒 টুকটুকির খাতা',chat:'💬 গোপন চ্যাট',rules:'📖 রুল বুক',sos:'🚨 বিপদের বাঁশি'};
+    document.getElementById('active-tab-indicator').innerText=names[tab]||'';
+    if(tab==='halum'){updateStrike();if(role==='teacher')renderTeacherPanel()}
+    if(tab==='shiku'){renderSeats();renderSeatVerify()}
+    if(tab==='ikri')renderSubjExam();
+    if(tab==='tuktuki')renderLedger();
+    if(tab==='chat')renderChat();
+    if(tab==='rules')renderRulesBook();
+    if(tab==='sos'&&role==='cr')renderCrSos();
+    if(tab==='sos'&&role==='student')renderMySos();
+}
+
+/* ========== অভিযোগ সিস্টেম ========== */
+function previewImg(e){var f=e.target.files[0];if(!f)return;var r=new FileReader();r.onload=function(ev){upImg=ev.target.result;document.getElementById('img-preview-src').src=upImg;document.getElementById('img-preview-box').classList.remove('hidden')};r.readAsDataURL(f)}
+function submitComplaint(){
+    if(isExp())return;
+    var desc=document.getElementById('comp-desc').value,comment=document.getElementById('comp-comment').value.trim(),t=tn();
+    comps.push({id:Date.now(),from:label,roll:roll,desc:desc,comment:comment,image:upImg,time:t,st:'pending'});
+    sv('comps',comps);upImg=null;document.getElementById('comp-image').value="";document.getElementById('img-preview-box').classList.add('hidden');document.getElementById('comp-comment').value="";
+    var m=document.getElementById('comp-success');m.classList.remove('hidden');m.innerText='✅ অভিযোগ জমা হয়েছে! রশিদ স্যার রিভিউ করবেন।';setTimeout(function(){m.classList.add('hidden')},4000);
+}
+function renderTeacherPanel(){
+    var all=0,pend=0,acc=0,rej=0;
+    for(var i=0;i<comps.length;i++){all++;if(comps[i].st==='pending')pend++;else if(comps[i].st==='accepted')acc++;else rej++}
+    document.getElementById('st-total').innerText=bn(all);document.getElementById('st-pending').innerText=bn(pend);document.getElementById('st-accepted').innerText=bn(acc);document.getElementById('st-rejected').innerText=bn(rej);
+    var nb=document.getElementById('notif-badge');if(pend>0){nb.classList.remove('hidden');nb.innerText=bn(pend)+' পেন্ডিং'}else{nb.classList.add('hidden')}
+    renderCompList();
+}
+function renderCompList(){
+    var c=document.getElementById('comp-list'),arr=[];
+    for(var i=0;i<comps.length;i++){arr.push(comps[i])}
+    if(!arr.length){c.innerHTML='<p class="text-xs text-gray-400 italic p-4 bg-white rounded text-center border">কোনো অভিযোগ নেই।</p>';return}
+    var h='';
+    for(var i=arr.length-1;i>=0;i--){
+        var x=arr[i];
+        var stC=x.st==='pending'?'bg-yellow-100 border-yellow-300 text-yellow-800':x.st==='accepted'?'bg-green-100 border-green-300 text-green-800':'bg-red-100 border-red-300 text-red-800';
+        var stL=x.st==='pending'?'⏳ পেন্ডিং':x.st==='accepted'?'✅ বৈধ':'❌ বাতিল';
+        var imgH=x.image?'<img src="'+x.image+'" class="w-16 h-16 object-cover rounded-lg border mt-2">':'';
+        var btns='';
+        if(x.st==='pending'){
+            btns='<div class="flex gap-2 mt-2"><button onclick="actComp('+x.id+',\'accepted\')" class="flex-1 bg-green-500 hover:bg-green-600 text-white font-bold py-1.5 rounded-lg text-[10px] transition">✅ বৈধ</button><button onclick="actComp('+x.id+',\'rejected\')" class="flex-1 bg-red-500 hover:bg-red-600 text-white font-bold py-1.5 rounded-lg text-[10px] transition">❌ বাতিল</button></div>';
+        }
+        h+='<div class="bg-white p-3 rounded-xl border-2 '+stC+' shadow-sm"><div class="flex justify-between items-start"><div><p class="font-black text-xs">'+x.from+'</p><p class="text-[10px] opacity-70">'+x.time+' | '+x.desc+'</p></div><span class="text-[9px] font-black px-2 py-0.5 rounded-full border">'+stL+'</span></div>'+(x.comment?'<p class="text-[10px] mt-1 opacity-80">"'+x.comment+'"</p>':'')+imgH+btns+'</div>';
+    }
+    c.innerHTML=h;
+}
+function actComp(id,st){
+    for(var i=0;i<comps.length;i++){
+        if(comps[i].id===id){
+            comps[i].st=st;
+            if(st==='accepted'){
+                accComps.push(comps[i]);
+                sv('accComps',accComps);
+                strikes=accComps.length;
+                sv('strikes',strikes);
+                if(strikes>=3){
+                    sv('strikes',3);
+                    setTimeout(function(){applyAuth();showExp()},500);
+                }
+            }
+            break;
+        }
+    }
+    sv('comps',comps);
+    updateStrike();
+    renderTeacherPanel();
+}
+function updateStrike(){
+    var pct=Math.min((strikes/3)*100,100);
+    document.getElementById('strike-bar').style.width=pct+'%';
+    document.getElementById('strike-count').innerText='স্ট্রাইক: '+bn(strikes)+' / ৩';
+    if(strikes>=3){
+        document.getElementById('strike-msg').innerText='🎉 কুদ্দুস বহিষ্কৃত হয়েছে! ৩টি বৈধ অভিযোগ প্রমাণিত।';
+        document.getElementById('strike-msg').className='text-[11px] text-green-800 font-bold mt-2';
+    }else if(strikes>0){
+        document.getElementById('strike-msg').innerText='⚠️ আর ' + bn(3-strikes) + 'টি বৈধ অভিযোগ প্রয়োজন বহিষ্কারের জন্য।';
+    }
+}
+function showExp(){
+    var el=document.getElementById('accepted-complaints-list');
+    var h='';
+    for(var i=0;i<accComps.length;i++){
+        h+='<div class="bg-white/20 p-2 rounded-lg text-sm"><b>'+accComps[i].desc+'</b> — '+accComps[i].from+' ('+accComps[i].time+')</div>';
+    }
+    el.innerHTML=h;
+}
+
+/* ========== ইকরি ========== */
+function renderSubjExam(){
+    var sl=document.getElementById('subject-list'),el=document.getElementById('exam-list');
+    var sh='',eh='';
+    for(var i=0;i<subjs.length;i++){
+        var topics=syllabus[subjs[i]];
+        var th='';
+        for(var j=0;j<topics.length;j++) th+='<span class="inline-block bg-white px-2 py-0.5 rounded text-[9px] border mr-1 mb-1">'+topics[j]+'</span>';
+        sh+='<div class="bg-white p-2 rounded-lg border text-xs"><p class="font-bold text-pink-700 mb-1">📖 '+subjs[i]+' ('+bn(topics.length)+' টপিক)</p><div class="flex flex-wrap">'+th+'</div></div>';
+    }
+    for(var i=0;i<exams.length;i++){
+        eh+='<div class="bg-white p-2 rounded-lg border text-xs flex justify-between items-center"><span class="font-bold text-indigo-700">'+exams[i].n+'</span><span class="text-[10px] text-gray-500">'+exams[i].d+'</span></div>';
+    }
+    sl.innerHTML=sh;el.innerHTML=eh;
+}
+function aiCompare(){
+    var txt=document.getElementById('kuddus-syllabus').value.trim();
+    var r=document.getElementById('ai-result');r.classList.remove('hidden');
+    if(!txt){r.innerHTML='<div class="bg-red-50 border border-red-200 p-3 rounded-xl text-xs text-red-600 font-bold">কুদ্দুসের সিলেবাস পেস্ট করুন!</div>';return}
+    var fake=0,real=0,missing=[];
+    for(var i=0;i<subjs.length;i++){
+        var topics=syllabus[subjs[i]];
+        for(var j=0;j<topics.length;j++){
+            if(txt.indexOf(topics[j])!==-1) real++;
+            else missing.push(topics[j]);
+        }
+    }
+    var fakeTopics=[];
+    var lines=txt.split('\n');
+    for(var i=0;i<lines.length;i++){
+        var line=lines[i].trim();
+        if(!line) continue;
+        var found=false;
+        for(var s=0;s<subjs.length;s++){
+            var topics=syllabus[subjs[s]];
+            for(var t=0;t<topics.length;t++){
+                if(line.indexOf(topics[t])!==-1){found=true;break}
+            }
+            if(found) break;
+        }
+        if(!found) fakeTopics.push(line);
+    }
+    fake=fakeTopics.length;
+    var mH='';
+    if(missing.length>0){
+        mH='<div class="mt-2"><p class="text-[10px] font-bold text-red-600 mb-1">❌ যেসব টপিক বাদ দেওয়া হয়েছে:</p><div class="flex flex-wrap">';
+        for(var i=0;i<Math.min(missing.length,10);i++) mH+='<span class="bg-red-100 text-red-700 text-[9px] px-2 py-0.5 rounded border border-red-200 mr-1 mb-1">'+missing[i]+'</span>';
+        if(missing.length>10) mH+='<span class="text-red-500 text-[9px]">+'+bn(missing.length-10)+' আরো...</span>';
+        mH+='</div></div>';
+    }
+    var fH='';
+    if(fake>0){
+        fH='<div class="mt-2"><p class="text-[10px] font-bold text-orange-600 mb-1">⚠️ সন্দেহজনক/ফেক টপিক:</p><div class="flex flex-wrap">';
+        for(var i=0;i<Math.min(fakeTopics.length,5);i++) fH+='<span class="bg-orange-100 text-orange-700 text-[9px] px-2 py-0.5 rounded border border-orange-200 mr-1 mb-1">'+fakeTopics[i]+'</span>';
+        fH+='</div></div>';
+    }
+    var accuracy=real>0?Math.round((real/(real+fake+missing.length))*100):0;
+    var accColor=accuracy>=80?'text-green-600':accuracy>=50?'text-yellow-600':'text-red-600';
+    r.innerHTML='<div class="bg-gradient-to-r from-pink-50 to-purple-50 p-4 rounded-xl border-2 border-pink-200 help-anim"><div class="grid grid-cols-3 gap-2 mb-3"><div class="bg-white p-2 rounded-lg text-center border"><p class="text-lg font-black text-green-600">'+bn(real)+'</p><p class="text-[9px] text-gray-500">সঠিক</p></div><div class="bg-white p-2 rounded-lg text-center border"><p class="text-lg font-black text-red-600">'+bn(missing.length)+'</p><p class="text-[9px] text-gray-500">বাদ</p></div><div class="bg-white p-2 rounded-lg text-center border"><p class="text-lg font-black text-orange-600">'+bn(fake)+'</p><p class="text-[9px] text-gray-500">সন্দেহজনক</p></div></div><p class="text-center text-sm font-black '+accColor+'">মিলের হার: '+bn(accuracy)+'%</p>'+(accuracy<70?'<p class="text-center text-[10px] text-red-600 font-bold mt-1">🚨 কুদ্দুস ভুয়া সিলেবাস দিচ্ছে!</p>':'<p class="text-center text-[10px] text-green-600 font-bold mt-1">✅ সিলেবাস বেশিরভাগ সঠিক।</p>')+mH+fH+'</div>';
+}
+
+/* ========== টুকটুকি ========== */
+function toggleLvFields(){
+    var t=document.getElementById('lv-type').value;
+    document.getElementById('lv-amt-block').classList.toggle('hidden',t!=='cash');
+    document.getElementById('lv-item-block').classList.toggle('hidden',t!=='tiffin');
+}
+function addLedger(){
+    var victim=document.getElementById('lv-victim').value.trim();
+    var type=document.getElementById('lv-type').value;
+    if(!victim){alert("ভিক্টিমের নাম দিন!");return}
+    var detail='';
+    if(type==='cash'){
+        var amt=parseInt(document.getElementById('lv-amt').value);
+        if(!amt){alert("টাকার পরিমাণ দিন!");return}
+        detail=bn(amt)+' ৳ চাঁদাবাজি';
+        tCash+=amt;sv('tCash',tCash);
+    }else{
+        var item=document.getElementById('lv-item').value.trim();
+        if(!item){alert("কী খেয়েছে লিখুন!");return}
+        detail=item+' টিফিন চুরি';
+        tTif++;sv('tTif',tTif);
+    }
+    lgr.push({victim:victim,type:type,detail:detail,time:tn()});
+    sv('lgr',lgr);
+    document.getElementById('lv-victim').value="";
+    document.getElementById('lv-amt').value="";
+    document.getElementById('lv-item').value="";
+    renderLedger();
+}
+function renderLedger(){
+    document.getElementById('cash-count').innerText=bn(tCash)+' ৳';
+    document.getElementById('tiffin-count').innerText=bn(tTif)+' টি';
+    var tb=document.getElementById('ledger-tbody');
+    var h='';
+    for(var i=lgr.length-1;i>=0;i--){
+        var x=lgr[i];
+        var typeBadge=x.type==='cash'?'<span class="bg-red-100 text-red-700 text-[9px] px-2 py-0.5 rounded-full border border-red-200">💵 চাঁদাবাজি</span>':'<span class="bg-orange-100 text-orange-700 text-[9px] px-2 py-0.5 rounded-full border border-orange-200">🍔 টিফিন চুরি</span>';
+        h+='<tr><td class="p-2.5 font-bold">'+x.victim+'</td><td class="p-2.5">'+typeBadge+'</td><td class="p-2.5 text-gray-600">'+x.detail+'</td><td class="p-2.5 text-right text-gray-400 text-[10px]">'+x.time+'</td></tr>';
+    }
+    if(!lgr.length) h='<tr><td colspan="4" class="p-4 text-center text-gray-400 italic text-xs">খাতায় কোনো এন্ট্রি নেই।</td></tr>';
+    tb.innerHTML=h;
+}
+
+/* ========== চ্যাট ========== */
+function renderChat(){
+    var box=document.getElementById('chat-box');
+    var h='';
+    for(var i=0;i<chats.length;i++){
+        var x=chats[i];
+        var isMe=x.s===chatName;
+        h+='<div class="flex '+(isMe?'justify-end':'justify-start')+'"><div class="max-w-[80%] '+(isMe?'bg-purple-600 text-white':'bg-white border border-gray-200 text-gray-700')+' p-2.5 rounded-2xl '+(isMe?'rounded-br-md':'rounded-bl-md')+' shadow-sm"><p class="text-[10px] font-bold '+(isMe?'text-purple-200':'text-purple-600')+' mb-0.5">'+x.s+'</p><p class="text-xs leading-relaxed">'+x.m+'</p><p class="text-[9px] '+(isMe?'text-purple-300':'text-gray-400')+' mt-1 text-right">'+x.t+'</p></div></div>';
+    }
+    box.innerHTML=h;
+    box.scrollTop=box.scrollHeight;
+}
+function sendChat(){
+    var inp=document.getElementById('chat-input');
+    var msg=inp.value.trim();
+    if(!msg)return;
+    chats.push({s:chatName,m:msg,t:tn()});
+    sv('chats',chats);
+    inp.value="";
+    renderChat();
+}
+
+/* ========== SOS ========== */
+function triggerSos(){
+    var loc=document.getElementById('sos-loc').value,t=tn();
+    sosR.push({id:Date.now(),sender:label,roll:roll,loc:loc,time:t,resp:null,respTime:null});
+    sv('sos',sosR);
+    var o=document.getElementById('sos-out');o.classList.remove('hidden');
+    o.innerHTML='🚨 SOS পাঠানো হয়েছে! লোকেশন: '+loc+' | সময়: '+t;
+    setTimeout(function(){o.classList.add('hidden')},5000);
+    renderMySos();
+}
+function renderMySos(){
+    var list=document.getElementById('my-sos-list');
+    var h='';
+    for(var i=sosR.length-1;i>=0;i--){
+        var x=sosR[i];
+        if(x.roll!==roll) continue;
+        var stBadge=x.resp?'<span class="bg-green-100 text-green-700 text-[9px] px-2 py-0.5 rounded-full border border-green-200">✅ রেসপন্স পাওয়া গেছে</span>':'<span class="bg-yellow-100 text-yellow-700 text-[9px] px-2 py-0.5 rounded-full border border-yellow-200">⏳ অপেক্ষমান</span>';
+        h+='<div class="bg-white p-2.5 rounded-lg border text-xs"><div class="flex justify-between items-start"><div><p class="font-bold text-gray-700">'+x.loc+'</p><p class="text-[10px] text-gray-400">'+x.time+'</p></div>'+stBadge+'</div>'+(x.resp?'<p class="mt-1 text-[10px] text-green-700 bg-green-50 p-1.5 rounded border border-green-200 font-bold">CR রেসপন্স: '+x.resp+'</p>':'')+'</div>';
+    }
+    if(!h) h='<p class="text-xs text-gray-400 italic text-center py-2">কোনো SOS পাঠানো হয়নি।</p>';
+    list.innerHTML=h;
+}
+function renderCrSos(){
+    var list=document.getElementById('cr-sos-list');
+    var h='';
+    for(var i=sosR.length-1;i>=0;i--){
+        var x=sosR[i];
+        var respArea=x.resp?'<p class="mt-1 text-[10px] text-green-700 bg-green-50 p-1.5 rounded border border-green-200 font-bold">আপনার রেসপন্স: '+x.resp+'</p>':'<div class="mt-2 flex gap-2"><input type="text" id="cr-resp-'+x.id+'" placeholder="রেসপন্স লিখুন..." class="flex-1 p-1.5 text-[10px] rounded border outline-none bg-white"><button onclick="respSos('+x.id+')" class="bg-green-500 hover:bg-green-600 text-white font-bold px-3 py-1.5 rounded text-[10px] transition">পাঠান</button></div>';
+        h+='<div class="bg-white p-3 rounded-xl border-2 border-red-200 shadow-sm"><div class="flex justify-between items-start"><div><p class="font-black text-xs text-red-700">'+x.sender+'</p><p class="text-[10px] text-gray-500">📍 '+x.loc+' | '+x.time+'</p></div><span class="text-[9px] font-black px-2 py-0.5 rounded-full '+(x.resp?'bg-green-100 text-green-700 border border-green-200':'bg-yellow-100 text-yellow-700 border border-yellow-200')+'">'+(x.resp?'✅ হ্যান্ডেল করা হয়েছে':'⏳ পেন্ডিং')+'</span></div>'+respArea+'</div>';
+    }
+    if(!h) h='<p class="text-xs text-gray-400 italic text-center py-4">কোনো SOS আসেনি।</p>';
+    list.innerHTML=h;
+}
+function respSos(id){
+    var inp=document.getElementById('cr-resp-'+id);
+    if(!inp||!inp.value.trim())return alert("রেসপন্স লিখুন!");
+    for(var i=0;i<sosR.length;i++){
+        if(sosR[i].id===id){
+            sosR[i].resp=inp.value.trim();
+            sosR[i].respTime=tn();
+            break;
+        }
+    }
+    sv('sos',sosR);
+    renderCrSos();
+}
+
+/* ========== রুল বুক ========== */
+function renderRulesBook(){
+    var container=document.getElementById('rules-book-list');
+    var h='';
+    for(var c=0;c<rulesBook.length;c++){
+        var cat=rulesBook[c];
+        var rh='';
+        for(var r=0;r<cat.rules.length;r++){
+            rh+='<div class="rule-item flex items-start gap-2 p-2 rounded-lg cursor-default"><span class="text-xs mt-0.5">'+(r+1)+'.</span><span class="text-xs text-gray-700 leading-relaxed rule-text">'+cat.rules[r]+'</span></div>';
+        }
+        var colorMap={indigo:'bg-indigo-50 border-indigo-200 text-indigo-700',blue:'bg-blue-50 border-blue-200 text-blue-700',orange:'bg-orange-50 border-orange-200 text-orange-700',pink:'bg-pink-50 border-pink-200 text-pink-700',red:'bg-red-50 border-red-200 text-red-700',amber:'bg-amber-50 border-amber-200 text-amber-700'};
+        h+='<div class="rule-category bg-white rounded-2xl border-2 border-gray-200 overflow-hidden shadow-sm"><div class="rule-cat-header '+colorMap[cat.color]+' p-3 flex items-center gap-2"><span class="text-lg">'+cat.icon+'</span><h4 class="font-black text-sm">'+cat.cat+'</h4><span class="text-[10px] opacity-70 ml-auto">'+bn(cat.rules.length)+'টি নিয়ম</span></div><div class="p-2 space-y-1">'+rh+'</div></div>';
+    }
+    container.innerHTML=h;
+}
+function filterRules(){
+    var q=document.getElementById('rules-search').value.trim().toLowerCase();
+    var texts=document.querySelectorAll('.rule-text');
+    var cats=document.querySelectorAll('.rule-category');
+    for(var i=0;i<texts.length;i++){
+        var t=texts[i].innerText.toLowerCase();
+        texts[i].closest('.rule-item').style.display=t.indexOf(q)!==-1?'':'none';
+    }
+    for(var i=0;i<cats.length;i++){
+        var vis=cats[i].querySelectorAll('.rule-item[style=""], .rule-item:not([style])');
+        cats[i].style.display=vis.length>0?'':'none';
+    }
+}
+</script>
+</body>
+</html>
